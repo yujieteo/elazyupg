@@ -1,0 +1,27 @@
+.Dd July 1, 2022
+.Dt ELAZYUPG 1
+.Os
+.Sh NAME
+.Nm elazyupg
+.Nd upgrade gentoo the lazy and wrong way if you use a binary kernel
+
+.Sh WARNING
+Requires root privileges. Code is dangerous, please read and modify
+before installing. Uses --ask option, so you cannot run it with cron
+or automatically perform eix-sync or whatever on the fly. This
+is intentional.
+
+.Sh DEPENDENCIES
+You need a binary gentoo kernel. You need eix-tools. You need to be
+using portage with gentoo.
+
+.Sh OVERVIEW
+I am too stupid when it comes to updating gentoo especially when it
+comes to updating grub for a new kernel, so I have this helper script
+that does the list of commands for me. Look I do not understand what
+half the commands are doing and I can barely bother, all I did was
+search Gentoo's forums and see what sort of maintenance/update routines
+people have, copy pasted the best practices and put it here.
+
+.Sh AUTHORS
+.An Teo Yu Jie Aq Mt contact (at) teoyujie (period) org

@@ -1,0 +1,19 @@
+gentoo-upg
+----------
+
+A wrong and lazy gentoo update script.
+
+WARNING: this script assumes you use a binary kernel for gentoo. I am way too
+lazy and stupid to configure a custom kernel. Please do check for kernel
+updates before you modify this script.
+
+This script seeks to update gentoo in the most lazy way possible. Please check
+that the packages you want to be upgraded are upgraded properly. It also
+configures grub to update to the latest binary kernel.
+
+How to use:
+sudo make install
+sudo make uninstall
+
+The sudo make uninstall does not remove the /man1/ directory even if it is
+empty, take note.

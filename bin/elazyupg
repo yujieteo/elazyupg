@@ -1,0 +1,22 @@
+#!/bin/sh
+[[ $EUID -ne 0 ]] && echo "This script must be run as root." && exit 1
+read -p "Do you want to run eix-sync? WARNING: do not use in excess. " -n 1 -r
+echo ; [[ $REPLY =~ ^[Yy]$ ]] && printf "Running emerge-sync now!" && eix-sync
+echo ; printf "Running the rest of the script now."
+echo ; printf "The --ask command is used, examine your install."
+emerge -av portage
+eclean-dist -d
+emerge -aDvNu system
+emerge -uDNav --tree @world
+emerge -av --depclean
+revdep-rebuild -iv -- --ask
+eclean-dist -d
+dispatch-conf
+glsa-check -vp affected
+glsa-check -t all
+glsa-check -f all
+eix-test-obsolete
+eix-update
+emaint --check all
+emerge @module-rebuild
+grub-mkconfig -o /boot/grub/grub.cfg
